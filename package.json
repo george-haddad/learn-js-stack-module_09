@@ -2,9 +2,7 @@
   "name": "your-project",
   "version": "1.0.0",
   "license": "MIT",
-  "browserslist": [
-    "> 1%"
-  ],
+  "browserslist": ["> 1%"],
   "scripts": {
     "start": "yarn dev:start",
     "dev:start": "nodemon -e js,jsx --ignore lib --ignore dist --exec babel-node src/server",
@@ -13,7 +11,7 @@
     "prod:start": "cross-env NODE_ENV=production pm2 start lib/server && pm2 logs",
     "prod:stop": "pm2 delete server",
     "lint": "eslint src webpack.config.babel.js --ext .js,.jsx",
-    "test": "yarn lint && jest --coverage",
+    "test": "yarn lint && jest --coverage && codecov --token=b3f28088-b15f-4bc0-9989-7bdd2814e57e",
     "precommit": "yarn test",
     "prepush": "yarn test && yarn prod:build"
   },
@@ -51,6 +49,7 @@
     "babel-preset-env": "1.6.0",
     "babel-preset-flow": "6.23.0",
     "babel-preset-react": "^6.24.1",
+    "codecov": "^2.3.0",
     "cross-env": "^5.0.5",
     "eslint": "4.3.0",
     "eslint-config-airbnb": "15.1.0",
